@@ -1,0 +1,96 @@
+PASS
+NICK
+USER
+JOIN
+MODE
+TOPIC
+KICK
+PRIVMSG
+INFO
+INVITE
+PART
+PONG
+BOT
+
+PASS " "
+NICK " "
+USER " "
+JOIN " "
+MODE " "
+TOPIC " "
+KICK " "
+PRIVMSG " "
+INFO " "
+INVITE " "
+PART " "
+PONG " "
+BOT " "
+
+PASS <password>
+NICK <nickname>
+USER <username>
+JOIN <channel>
+MODE
+TOPIC
+KICK
+PRIVMSG
+INFO
+INVITE
+PART
+PONG
+BOT
+
+
+USER <username> 0
+USER <username> 0 *
+USER <username> 0 * <realname>
+JOIN <channel>
+JOIN <channel>,<channel>
+JOIN <channel> <key>
+JOIN <channel>,<channel> <key>,<key>
+
+
+JOIN #test,#test1 123  
+JOIN #test2,#test3
+JOIN #test4,#test5 qwertyui azertyui 
+JOIN #test
+
+
+//new channel
+S <-   :dan!~d@0::1 JOIN #test
+S <-   :irc.example.com MODE #test +nt
+S <-   :irc.example.com 353 dan = #test :@dan
+S <-   :irc.example.com 366 dan #test :End of /NAMES list.
+
+
+//existing channel 
+S <-   :alice!~a@localhost JOIN #test
+S <-   :irc.example.com 332 alice #test :This is my cool channel! https://irc.com
+S <-   :irc.example.com 333 alice #test dan!~d@localhost 1547691506
+S <-   :irc.example.com 353 alice @ #test :alice @dan
+S <-   :irc.example.com 366 alice #test :End of /NAMES list.
+
+
+//seeing joiing channel
+S <-   :patty!p@localhost JOIN :#irctoast
+S <-   :irc.example.com 353 patty = #irctoast :@patty
+S <-   :irc.example.com 366 patty #irctoast :End of /NAMES list.
+... some time passes ...
+S <-   :alice!a@localhost JOIN :#irctoast
+
+//failing to join a channel has a key
+S <-   :irc.example.com 475 adrian #test :Cannot join channel (+k) - bad key
+
+
+//joininn  channel with key
+:adrian!~a@localhost JOIN #test
+S <-   :irc.example.com 353 adrian @ #test :adrian @dan
+S <-   :irc.example.com 366 adrian #test :End of /NAMES list.
+
+//join multip channel
+:alice!~a@localhost JOIN #toast
+S <-   :irc.example.com 353 alice = #toast :alice @dan
+S <-   :irc.example.com 366 alice #toast :End of /NAMES list.
+S <-   :alice!~a@localhost JOIN #ircv3
+S <-   :irc.example.com 353 alice = #ircv3 :alice @dan
+S <-   :irc.example.com 366 alice #ircv3 :End of /NAMES list.
