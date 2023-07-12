@@ -6,7 +6,7 @@
 /*   By: iqabbal <iqabbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 01:34:23 by iqabbal           #+#    #+#             */
-/*   Updated: 2023/07/11 00:03:23 by iqabbal          ###   ########.fr       */
+/*   Updated: 2023/07/12 06:48:25 by iqabbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 bool Cmds::check_pass(std::string Parameters)
 {
+    std::cout << "size is : " << Parameters.size() << std::endl;
+    std::cout << "Param is : " << Parameters << std::endl;
     if (Parameters.empty())
     {
         this->replay->ERR_NEEDMOREPARAMS();

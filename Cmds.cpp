@@ -6,7 +6,7 @@
 /*   By: iqabbal <iqabbal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 02:03:45 by iqabbal           #+#    #+#             */
-/*   Updated: 2023/07/11 08:22:09 by iqabbal          ###   ########.fr       */
+/*   Updated: 2023/07/12 06:47:35 by iqabbal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,6 @@ bool Cmds::check_command(std::string command, std::string Parameters, Client &c,
         this->replay->COMMAND_NOT_FOUND(command);
         return false;
     }
-    // if(c.get_bot_checker() == true && command.empty())
-    // {
-    //     bot(remove_(Parameters),c);
-    //     return true;
-    // }
     switch (command_to_execute)
     {
         case PASS:
